@@ -8,6 +8,10 @@ package DSA_Trees;
 //Another way is to make the mid-element as root node, so the resulting bst will be balanced.Hence, complexity
 //of searching any element becomes in the order of log n.(can say the best way)
 
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class BST {
 
     private static class Node{
@@ -23,8 +27,8 @@ public class BST {
             this.right = right;
         }
     }
-    private Node root;
-   // private int size=0;
+    private final Node root;
+    //private int size=0;
 
     //we will construct binary search tree from given sorted array by the user.
     public BST(int[] arr){
@@ -121,7 +125,7 @@ public class BST {
         removeNode(this.root,data);
     }
     private void removeNode(Node root,int data){
-
+//incomplete as we cant remove whole node if its left or right child are non null
         if(data> root.data){
             if(root.right.data==data){
                 root.right=null;
@@ -135,5 +139,25 @@ public class BST {
             removeNode(root.left, data);
         }
     }
+
+    public void sumOfLeafNodes(){
+        sumOfLeafNodes(this.root);
+        System.out.println("Sum of leaf nodes = "+sum);
+    }
+    static int sum=0;
+    private void sumOfLeafNodes(Node root){
+        if(root.right==null&&root.left==null){
+             sum+=root.data;
+             return;
+        }
+        if(root.left!=null){
+           sumOfLeafNodes(root.left);
+        }
+        if(root.right!=null) {
+            sumOfLeafNodes(root.right);
+        }
+
+    }
+
 
 }

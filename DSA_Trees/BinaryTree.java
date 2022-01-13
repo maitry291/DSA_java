@@ -1,6 +1,8 @@
 package DSA_Trees;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -93,7 +95,6 @@ public class BinaryTree {
     public int height(){
         return height(this.root);
     }
-
     private int height(Node root){
         //base case
         if(root==null){
@@ -119,6 +120,7 @@ public class BinaryTree {
         preOrderTraversal(root.right);
 
     }
+
     //in-order means ->left node right
     public void inOrderTraversal(){
         inOrderTraversal(this.root);
@@ -130,8 +132,8 @@ public class BinaryTree {
         inOrderTraversal(root.left);
         System.out.print(root.data);
         inOrderTraversal(root.right);
-
     }
+
     //post-order means ->left right node
     public void postOrderTraversal(){
         postOrderTraversal(this.root);
@@ -145,6 +147,7 @@ public class BinaryTree {
         System.out.print(root.data);
 
     }
+
     //same level traversal
     //understand this self
     public void levelTraversal(){
@@ -152,7 +155,7 @@ public class BinaryTree {
     }
     private void levelTraversal(Node root){
         LinkedList<Node> queue=new LinkedList<>();
-        queue.add(this.root);
+        queue.add(root);
         while (!queue.isEmpty()){
             Node rv=queue.removeFirst();
             System.out.print(rv.data+" ");
@@ -163,8 +166,87 @@ public class BinaryTree {
                 queue.addLast(rv.right);
             }
         }
+    }
+
+    public boolean isBST(){
+        return isBST(this.root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+    private boolean isBST(Node root, int min, int max){
+        //first method: we have to store all nodes of tree in inorder traversal in an array or arraylist
+        //then we will check whether array is sorted or not
+
+        //second method: we have to compare each node data with its parent
+
+        //base case
+        if(root==null)
+            return true;
+
+        if(root.data>max||root.data<min)
+            return false;
+        else if(!this.isBST(root.left,min, root.data))
+            return false;
+        else if(!this.isBST(root.right,root.data,max))
+            return false;
+
+        return true;
 
     }
 
+    public int sumOfLeafNodes(){
+        return sumOfLeafNodes(this.root);
+    }
+    private int sumOfLeafNodes(Node root){
+        //base cases
+        if(root==null)
+            return 0;
+        if(root.right==null&&root.left==null){
+           return root.data;
+        }
 
+        int lsum=sumOfLeafNodes(root.left);
+        int rsum=sumOfLeafNodes(root.right);
+
+        return lsum+rsum;
+
+    }
+
+    public int diameterOfTree(){
+        return diameterOfTree(this.root);
+    }
+    private int diameterOfTree(Node root){
+        //base case
+        if(root==null)
+            return 0;
+        int d1=height(root.left)+height(root.right)+2; //when diameter passes through the root node
+        int d2=diameterOfTree(root.left);
+        int d3=diameterOfTree(root.right);
+
+        return Math.max(d1,Math.max(d2,d3));
+    }
+
+
+    //Function to return the level order traversal of a tree.
+    static ArrayList<Integer> revLevelOrder(Node node)
+    {
+        ArrayList<Integer> nodes=new ArrayList<>();
+        LinkedList<Node> queue=new LinkedList<>();
+        LinkedList<Node> queue2=new LinkedList<>();
+
+        queue.addFirst(node);
+        while (!queue.isEmpty()){
+            Node rv=queue.removeFirst();
+            queue2.addLast(rv);
+
+            if(rv.right!=null){
+                queue.addFirst(rv.right);
+            }
+            if(rv.left!=null){
+                queue.addFirst(rv.left);
+            }
+        }
+        while (!queue2.isEmpty()){
+            nodes.add(queue2.removeLast().data);
+        }
+        return nodes;
+    }
 }

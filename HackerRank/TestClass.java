@@ -1,5 +1,6 @@
 package HackerRank;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class TestClass {
@@ -25,7 +26,28 @@ public class TestClass {
             }
             s.close();
         }
-        public static void rotateArray(int[] a,int k){
+    public static long aVeryBigSum(List<Long> ar) {
+        // Write your code here
+        long sum=0;
+        for (Long aLong : ar) {
+            sum += aLong;
+        }
+        return sum;
+    }
+
+    public static int diagonalDifference(List<List<Integer>> arr) {
+        // Write your code here
+        int rd=0;
+        int ld=0;
+        for(int i=0,j=0;i<arr.size()&&j<arr.size();i++,j++){
+            //if(i==j)
+                //rd+=arr.get(i);
+        }
+        //return Math.abs(rd-ld);
+        return 0;
+    }
+
+    public static void rotateArray(int[] a,int k){
             int[] b=new int[a.length];
             System.arraycopy(a, 0, b, 0, a.length);
             int i;
