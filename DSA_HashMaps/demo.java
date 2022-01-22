@@ -1,20 +1,36 @@
 package DSA_HashMaps;
 
+import DSA_Tries.Trie;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class demo {
-    public static void main(String[] args) {
-        GenericLL<Integer> l=new GenericLL<>();
+    public static void main(String[] args) throws Exception {
+        /*GenericLL<Integer> l=new GenericLL<>();
         l.addFirst(12);
         System.out.println(l.findElement(12));
         System.out.println(getMostFrequentCharacter("aaabcdbbb"));
 
         int[] a1={5,1,3,4,7};
         int[] a2={2,4,3,5,7,10,15};
-        System.out.println(getIntersection(a1,a2));
+        System.out.println(getIntersection(a1,a2));*/
+        HashTable<String,Integer> hashmap=new HashTable<>(2);
+        hashmap.put("singapore",50);
+        hashmap.put("paris",125);
+        hashmap.display();
+        hashmap.put("los angles",150);
+        hashmap.put("singapore",70);
+        hashmap.put("singa",70);
+        hashmap.put("pore",70);
+
+        hashmap.display();
+
+        //System.out.println(hashmap.get("singapore"));
+        //hashmap.remove("singapore");
+        //hashmap.display();
     }
     //O(n) complexity
     public static char getMostFrequentCharacter(String s){

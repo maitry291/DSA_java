@@ -98,16 +98,21 @@ public class GenericLL<T> {
         return tail.data;
     }
     //o(1)
-    public void removeFirst() throws Exception{
+    public T removeFirst() throws Exception{
+        Node rn;
         if(size==0)
             throw new Exception("list is empty");
         if(size==1){
+            rn=head;
             head=null;
             tail=null;
         }
-        else
-            this.head=head.next;
+        else {
+             rn=head;
+            this.head = head.next;
+        }
         size--;
+        return rn.data;
     }
     //o(n)
     public void removeLast() throws Exception{
