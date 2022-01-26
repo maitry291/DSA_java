@@ -29,6 +29,7 @@ public class Trie {
     public void addWord(String word){
         this.addWord(this.root,word);
     }
+
     //O(length of word)
     private void addWord(Node parent,String word){
         if(word.length()==0){
@@ -67,5 +68,46 @@ public class Trie {
 
     }
 
+    public boolean searchWord(String word){
+       return searchWord(this.root,word);
+    }
+
+    private boolean searchWord(Node parent,String word){
+        if(word.length()==0){
+            return parent.isTerminal;
+        }
+        char cc=word.charAt(0);
+        String ros=word.substring(1);
+        if(parent.children.containsKey(cc)){
+            return this.searchWord(parent.children.get(cc),ros);
+        }
+      return false;
+    }
+
+    public void removeWord(String word){
+        removeWord(this.root,word);
+    }
+    private void removeWord(Node parent,String word){
+        if(word.length()==0){
+            if(parent.isTerminal){
+                parent.isTerminal=false;
+                this.numWords--;
+            }else{
+                //word is part of some other word
+            }
+            return;
+        }
+        char cc=word.charAt(0);
+        String ros=word.substring(1);
+        Node child = parent.children.get(cc);
+
+        if(child!=null){
+            removeWord(child,ros);
+            if(!child.isTerminal&&child.children.isEmpty()){
+                parent.children.remove(cc);
+            }
+        }
+
+    }
 
 }

@@ -2,7 +2,7 @@ package DSA_Heap;
 
 public class demo {
     public static void main(String[] args) {
-        Heap heap=new Heap();
+        /*Heap heap=new Heap();
         heap.add(1);
         heap.display();
         heap.add(10);
@@ -19,7 +19,12 @@ public class demo {
         heap.display();
 
         System.out.println(heap.remove());
-        heap.display();
+        heap.display();*/
+
+        HuffmanCoding coder=new HuffmanCoding("abbbccccda");
+        System.out.println(coder.encoder);
+        System.out.println(coder.encode("abbbccccda"));
+
 
     }
 }
