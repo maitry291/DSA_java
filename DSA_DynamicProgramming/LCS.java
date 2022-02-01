@@ -1,7 +1,6 @@
 package DSA_DynamicProgramming;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 //longest common substring length
 public class LCS {

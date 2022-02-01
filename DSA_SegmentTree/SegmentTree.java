@@ -4,8 +4,8 @@ package DSA_SegmentTree;
 // and change the any array element in O(log n) time once given the array
 
 //tree will be a Full Binary Tree because we always divide segments in
-// two halves at every level. Since the constructed tree is always a full binary tree with n leaves,
-// there will be n-1 internal nodes and n leaf nodes So the total number of nodes will be n+n-1=2*n-1 nodes.
+//two halves at every level. Since the constructed tree is always a full binary tree with n leaves,
+//there will be n-1 internal nodes and n leaf nodes So the total number of nodes will be n+n-1=2*n-1 nodes.
 
 // Height of the segment tree will be ⌈log₂n⌉
 //size of memory allocated for segment tree will be 2 * 2⌈log2n⌉  – 1.
