@@ -18,7 +18,16 @@ import java.util.Arrays;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] a={88,11,44,99,33};
+        //int[] a={88,11,44,99,33};
+        int n=100000;
+        int[] a=new int[n];
+        for(int i=n-1;i>=0;i--){
+            a[n-i-1]=i;
+        }
+
+        Long start=System.currentTimeMillis();
+
+
         int counter,temp,val;
         for(counter=1;counter<=a.length-1;counter++){ //after completion of every counter loop the array will be
             //sorted till the counter value
@@ -34,6 +43,8 @@ public class InsertionSort {
             // where the element before it is not larger than itself.
 
         }
-        System.out.println(Arrays.toString(a));
+        Long stop=System.currentTimeMillis();
+        System.out.println("time ="+(stop-start)+" milliseconds");
+        //System.out.println(Arrays.toString(a));
     }
 }

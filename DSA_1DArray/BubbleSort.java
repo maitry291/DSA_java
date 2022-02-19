@@ -8,7 +8,16 @@ import java.util.Arrays;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] a={88,11,44,99,33};
+        //int[] a={88,11,44,99,33};
+        int n=1000000;
+        int[] a=new int[n];
+        for(int i=n-1;i>=0;i--){
+            a[n-i-1]=i;
+        }
+        //System.out.println(Arrays.toString(a));
+
+        Long start=System.currentTimeMillis();
+
         int counter,i=0;
         for(counter=0;counter<a.length-1;counter++){ //when counter=0 finishes one element will be
             // at the correct position(that one element is the largest element of array)
@@ -20,6 +29,8 @@ public class BubbleSort {
                 }
             }
         }
-        System.out.println(Arrays.toString(a));
+        //System.out.println(Arrays.toString(a));
+        Long stop=System.currentTimeMillis();
+        System.out.println("time ="+(stop-start)+" milliseconds");
     }
 }

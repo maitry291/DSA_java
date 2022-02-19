@@ -1,5 +1,6 @@
 package HackerRank;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,6 +25,50 @@ public class TestClass {
         }
         s.close();*/
         System.out.println(timeConversion("01:09:45 PM"));
+    }
+
+    public static String kangaroo(int x1, int v1, int x2, int v2) {
+        // Write your code here
+        int i=1;
+        while((x1-x2)%(v1-v2)!=0){
+            i++;
+        }
+        return "NO";
+    }
+
+    public static long roadsAndLibraries(int n, int c_lib, int c_road, List<List<Integer>> cities) {
+        // Write your code here
+        int cost=0;
+        if(c_lib<c_road)
+            cost=c_lib*n;
+        else{
+            cost=cities.size()*c_road;
+            for(int i=1;i<=n;i++){
+
+            }
+
+        }
+
+        return cost;
+    }
+
+    public static void countApplesAndOranges(int s, int t, int a, int b, List<Integer> apples, List<Integer> oranges) {
+        // Write your code here
+        int noa=0,noo=0;
+        for(int apple:apples){
+            apple+=a;
+            if(apple>=s&&apple<=t)
+                noa++;
+        }
+        for(int orange:oranges){
+            orange+=b;
+            if(orange>=s&&orange<=t)
+                noo++;
+        }
+        System.out.println(noa);
+        System.out.println(noo);
+
+
     }
 
     public static int birthdayCakeCandles(List<Integer> candles) {
@@ -62,6 +107,22 @@ public class TestClass {
         return s;
     }
 
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+        // Write your code here
+        List<Integer> finalGrade=new ArrayList<>();
+
+        for(int marks:grades){
+            if(marks<38){
+            finalGrade.add(marks);
+            }
+            else if(marks%5>2){
+                finalGrade.add(marks+5-marks%5);
+            }else
+                finalGrade.add(marks);
+
+        }
+        return finalGrade;
+    }
 
     public static long aVeryBigSum(List<Long> ar) {
         // Write your code here

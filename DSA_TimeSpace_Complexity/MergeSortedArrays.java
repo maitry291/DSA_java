@@ -11,9 +11,23 @@ public class MergeSortedArrays {
     public static void main(String[] args) {
           int[] a1={2,10,20,30,40}; //sorted array
           int[] a2={5,15,25,35,40}; //sorted array
-          int[] a={40,3,69,20,15};
+         // int[] a={40,3,69,20,15};
         //System.out.println(Arrays.toString(merge2SortedArrays(a1,a2)));
-        System.out.println(Arrays.toString(mergeSort(a,0,a.length-1)));
+        int n=10000000;
+        int[] a=new int[n];
+        for(int i=n-1;i>=0;i--){
+            a[n-i-1]=i;
+        }
+        //System.out.println(Arrays.toString(a));
+
+        Long start=System.currentTimeMillis();
+
+        mergeSort(a,0,a.length-1);
+
+        //Instant end = Instant.now();
+        Long stop=System.currentTimeMillis();
+        System.out.println("time ="+(stop-start)+" milliseconds");
+
     }
     public static int[] merge2SortedArrays(int[] a1,int[] a2) {
         int i = 0, j = 0, k = 0;

@@ -18,9 +18,23 @@ import java.util.Arrays;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] a={40,3,69,20,15};
+        int n=1000;
+        int[] a=new int[n];
+        for(int i=n-1;i>=0;i--){
+           a[n-i-1]=i;
+        }
+        //System.out.println(Arrays.toString(a));
+
+        Long start=System.currentTimeMillis();
+
         quickSort(a,0,a.length-1);
-        System.out.println(Arrays.toString(a));
+
+        //Instant end = Instant.now();
+        Long stop=System.currentTimeMillis();
+        System.out.println("time ="+(stop-start)+" milliseconds");
+
+        //System.out.println(Arrays.toString(a));
+
     }
     public static void quickSort(int[] a,int low,int high){
         //base case
