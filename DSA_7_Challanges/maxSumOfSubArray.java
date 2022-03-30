@@ -4,7 +4,7 @@ package DSA_7_Challanges;
 // compares this maximum with the overall maximum.
 // Finally, return the overall maximum. The time complexity of the Naive method is O(n^2).
 
-//there is another method available with time complexity o(n).
+//there is another method available with time complexity o(n)-->kadane's algo
 
 //Using Divide and Conquer approach,
 //we can find the maximum sub-array sum in O(n*Log n) time. Following is the Divide and Conquer algorithm.

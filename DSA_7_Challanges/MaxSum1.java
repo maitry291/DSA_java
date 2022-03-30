@@ -26,7 +26,7 @@ public class MaxSum1 {
         Arrays.sort(max_sum);
         return max_sum[a.length-1];
     }
-    //O(n)
+    //O(n) kadane's algo
     static int maxSubArraySum(int[] a)
     {
         int size = a.length;
